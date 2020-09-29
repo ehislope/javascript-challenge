@@ -1,5 +1,7 @@
 // from data.js
 var tableData = data;
+button = d3.select("#filter-btn"),
+form = d3.select("#filters");
 
 // add data to table
 const tbody = d3.select("tbody");
@@ -20,13 +22,18 @@ tableData.forEach((ufoReport) => {
     
     // Select the input element and get the raw HTML node
     // Get the value property of the input element
-    let inputElement = d3.select(".form-control"), 
-        inputValue = inputElement.property("value");
-  
-    console.log(inputValue);
-    console.log(Date);
-  
-    let filteredData = date.filter(date => date.sighting === inputValue);
-  
-    console.log(filteredData);
-  }
+    let inputElement = d3.select("#datetime"),
+    inputValue = inputElement.property("value");
+
+console.log(inputValue);
+console.log(tableData);
+
+let filteredData = tableData.filter(date => date.datetime === inputValue);
+
+console.log(filteredData);
+
+}
+
+// Create event handlers 
+button.on("click", runEnter);
+form.on("submit", runEnter);
