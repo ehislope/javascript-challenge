@@ -1,6 +1,8 @@
 // from data.js
 var tableData = data;
-button = d3.select("#filter-btn"),
+
+// set up click handler
+button = d3.select("#filter-btn");
 form = d3.select("#filters");
 
 // add data to table
@@ -19,11 +21,7 @@ function tableBuilder(data){
 console.log(tableData);
 
 //   add event handler function
-// const runEnter = () => {
-
-// }
    
-
 function runEnter() {
    // Prevent the page from refreshing
    d3.event.preventDefault();
@@ -32,12 +30,9 @@ function runEnter() {
     let inputElement = d3.select("#datetime").property("value");
     let filteredData = tableData
 
-
     console.log(inputElement);
     console.log(filteredData);
-   
 
-  // let filteredData = tableData.filter(date => date.datetime === inputElement);
     if (inputElement) {
       filteredData=filteredData.filter(row => row.datetime ===inputElement);
 
